@@ -67,8 +67,8 @@ const ViewMarks = () => {
             return res.json();
         })
         .then(mark => {
-            const new_mark=mark.filter((mark)=> mark.id === id)
-            setMark(new_mark);
+            const update=mark.filter((mark)=> mark.id === id)
+            setMark(update);
         })  
     },[]);
 
@@ -101,9 +101,9 @@ const ViewMarks = () => {
             if(mark !== null)
             {mark.map((mark,key)=>{
            // var Key =parseInt(mark.key);
-            var fir =mark.internal1;
-            var sec =mark.internal2;
-            var exter =mark.external;
+            var internal1 =mark.internal1;
+            var internal2 =mark.internal2;
+            var external =mark.external;
             var Total =(parseInt(mark.external)+parseInt(mark.internal1)+parseInt(mark.internal2))/100;
             grandTotal += Total;
             CGPA =grandTotal/(key+1);
