@@ -1,0 +1,77 @@
+{
+    "students": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "subjects": [
+          {
+            "id": 1,
+            "name": "Maths",
+            "firstInternalMark": 20,
+            "secondInternalMark": 25,
+            "externalMark": 45,
+            "total": 90,
+            "cgpa": 3.00
+          },
+          {
+            "id": 2,
+            "name": "Science",
+            "firstInternalMark": 18,
+            "secondInternalMark": 22,
+            "externalMark": 40,
+            "total": 80,
+            "cgpa": 2.67
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Jane Doe",
+        "subjects": [
+          {
+            "id": 1,
+            "name": "Maths",
+            "firstInternalMark": 22,
+            "secondInternalMark": 24,
+            "externalMark": 44,
+            "total": 90,
+            "cgpa": 3.00
+          },
+          {
+            "id": 2,
+            "name": "Science",
+            "firstInternalMark": 20,
+            "secondInternalMark": 20,
+            "externalMark": 38,
+            "total": 78,
+            "cgpa": 2.60
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bob Smith",
+        "subjects": [
+          {
+            "id": 1,
+            "name": "Maths",
+            "firstInternalMark": 24,
+            "secondInternalMark": 26,
+            "externalMark": 46,
+            "total": 96,
+            "cgpa": 3.20
+          },
+          {
+            "id": 2,
+            "name": "Science",
+            "firstInternalMark": 22,
+            "secondInternalMark": 24,
+            "externalMark": 42,
+            "total": 88,
+            "cgpa": 2.93
+          }
+        ]
+      }
+    ]
+  }
+  
