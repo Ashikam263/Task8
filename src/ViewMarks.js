@@ -85,17 +85,17 @@ const ViewMarks = () => {
             }
         };
 
-        const toAddData= () =>{
-            if(mark !== null){
-                if(mark.length===0) {
-                    return false;}
-                else{ 
-                return true;}
-            }
-            else{ 
-                return false;
-            }
-        };
+        // const toAddData= () =>{
+        //     if(mark !== null){
+        //         if(mark.length===0) {
+        //             return false;}
+        //         else{ 
+        //         return true;}
+        //     }
+        //     else{ 
+        //         return false;
+        //     }
+        // };
         
         const cgpa= ()=>{
             if(mark !== null)
