@@ -7,20 +7,18 @@
           {
             "id": 1,
             "name": "Maths",
-            "firstInternalMark": 20,
-            "secondInternalMark": 25,
-            "externalMark": 45,
-            "total": 90,
-            "cgpa": 3.00
+            "Internal1": 20,
+            "Internal2": 25,
+            "external": 45,
+            "total": 90
           },
           {
             "id": 2,
             "name": "Science",
-            "firstInternalMark": 18,
-            "secondInternalMark": 22,
-            "externalMark": 40,
-            "total": 80,
-            "cgpa": 2.67
+            "Internal1": 18,
+            "Internal2": 22,
+            "external": 40,
+            "total": 80
           }
         ]
       },
@@ -31,20 +29,18 @@
           {
             "id": 1,
             "name": "Maths",
-            "firstInternalMark": 22,
-            "secondInternalMark": 24,
-            "externalMark": 44,
-            "total": 90,
-            "cgpa": 3.00
+            "Internal1": 22,
+            "Internal2": 24,
+            "external": 44,
+            "total": 90
           },
           {
             "id": 2,
             "name": "Science",
-            "firstInternalMark": 20,
-            "secondInternalMark": 20,
-            "externalMark": 38,
-            "total": 78,
-            "cgpa": 2.60
+            "Internal1k": 20,
+            "Internal2": 20,
+            "external": 38,
+            "total": 78
           }
         ]
       },
@@ -55,20 +51,18 @@
           {
             "id": 1,
             "name": "Maths",
-            "firstInternalMark": 24,
-            "secondInternalMark": 26,
-            "externalMark": 46,
-            "total": 96,
-            "cgpa": 3.20
+            "Internal1": 24,
+            "Internal2": 26,
+            "external": 46,
+            "total": 96
           },
           {
             "id": 2,
             "name": "Science",
-            "firstInternalMark": 22,
-            "secondInternalMark": 24,
-            "externalMark": 42,
-            "total": 88,
-            "cgpa": 2.93
+            "Internal1": 22,
+            "Internal2": 24,
+            "external": 42,
+            "total": 88
           }
         ]
       }
