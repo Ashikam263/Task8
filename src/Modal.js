@@ -111,13 +111,11 @@
 
 import  React from 'react';
 import { useState } from "react";
-import Modal from '@mui/material/Modal';
 
 const Modal = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
-    const mark_id=  id;
   
     const [subject,setSubject] =useState(" ");
     const [internal1,setinternal1] =useState(" ");
@@ -126,7 +124,7 @@ const Modal = () => {
    
 
     const handleSubmit = (e) => {
-        const Mark ={subject,internal1,internal2,external,mark_id};
+        const Mark ={subject,internal1,internal2,external};
         
         fetch("",{
             method:'POST',
@@ -143,7 +141,7 @@ const Modal = () => {
             <Modal onClose={handleClose} open={open} >
                 <div>
                     <div className="modal-header">
-                        <h1 className="modal-title">Enter Marks</h1>
+                      <h1 className="modal-title">Enter Marks</h1>
                     </div>
                     <div className="modal-body" >
                         <form onSubmit={handleSubmit}>
@@ -160,7 +158,7 @@ const Modal = () => {
                                 <input  
                                 className="form-control"
                                 value={internal1}
-                                onChange={(e) => setint1(e.target.value)}
+                                onChange={(e) => setinternal1(e.target.value)}
                                 required/>
                             </div>
                             <div className="form-group">
@@ -168,7 +166,7 @@ const Modal = () => {
                                 <input type="number" 
                                 className="form-control"
                                 value={internal2}
-                                onChange={(e) => setint2(e.target.value)}
+                                onChange={(e) => setinternal2(e.target.value)}
                                 required/>
                             </div>
                             <div className="form-group">
@@ -176,17 +174,17 @@ const Modal = () => {
                                 <input type="number" 
                                     className="form-control"
                                     value={external}
-                                    onChange={(e) => setext(e.target.value)}
+                                    onChange={(e) => setexternal(e.target.value)}
                                     required/>
                             </div>
                             <button>Submit</button>
                         </form>    
                     </div>
-                </div>    
-
+                </div>  
             </Modal>
         </div>
 
     );
 }
-    export default Modal;
+
+export default Modal;

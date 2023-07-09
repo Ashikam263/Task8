@@ -1,6 +1,6 @@
 import { useState ,useEffect } from "react";
 import { Link  } from 'react-router-dom';
-import Title from "./Titile.js";
+import Title from "./Title.js";
 
 const Table = () => {
     const [data,setData]  = useState(null);
@@ -55,7 +55,7 @@ const Table = () => {
                             <tr key={key}>
                                 <td>{data.id}</td>
                                 <td>{data.name}</td>
-                                <td className="viewmarks">{<Link to={`/Mark/${data.id}`}><button >View marks</button></Link>}</td>
+                                <td className="viewmarks">{<Link to={`/ViewMarks/${data.id}`}><button >View marks</button></Link>}</td>
                             </tr>
                         )
                         )}
@@ -63,8 +63,6 @@ const Table = () => {
                 </table> 
             </div>
         </div>
-
-       
      );
 }
  
