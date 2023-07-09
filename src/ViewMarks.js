@@ -53,26 +53,15 @@
 
 import { useState,useEffect } from "react";
 import Modal from "./Modal";
-import Text from "./Titile.js";
+import Title from "./Title.js";
 
 
 const ViewMarks = () => {
     const [mark,setMark] = useState(null);
+    const id = id;
     var grandTotal =0; 
     var CGPA =0;
     
-    useEffect(() => {
-        fetch("")
-        .then(res =>{
-            return res.json();
-        })
-        .then(mark => {
-            const update=mark.filter((mark)=> mark.id === id)
-            setMark(update);
-        })  
-    },[]);
-
-
          const AddTitle= () =>{
             if(mark !== null){
                 if(mark.length===0) {
@@ -85,17 +74,17 @@ const ViewMarks = () => {
             }
         };
 
-        // const toAddData= () =>{
-        //     if(mark !== null){
-        //         if(mark.length===0) {
-        //             return false;}
-        //         else{ 
-        //         return true;}
-        //     }
-        //     else{ 
-        //         return false;
-        //     }
-        // };
+        const toAddData= () =>{
+            if(mark !== null){
+                if(mark.length===0) {
+                    return false;}
+                else{ 
+                return true;}
+            }
+            else{ 
+                return false;
+            }
+        };
         
         const cgpa= ()=>{
             if(mark !== null)
@@ -111,6 +100,17 @@ const ViewMarks = () => {
             return CGPA*10 ;
         }
      }
+
+     useEffect(() => {
+      fetch("")
+      .then(res =>{
+          return res.json();
+      })
+      .then(mark => {
+          const update=mark.filter((mark)=> mark.id === id)
+          setMark(update);
+      })  
+    },[]);
         
 
     return (   
