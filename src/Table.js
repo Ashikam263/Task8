@@ -67,3 +67,5 @@ const Table = () => {
 }
  
 export default Table;
+
+//table not working
