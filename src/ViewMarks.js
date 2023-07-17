@@ -102,7 +102,7 @@ const ViewMarks = () => {
      }
 
      useEffect(() => {
-      fetch("")
+      fetch("http://localhost:8000/students")
       .then(res =>{
           return res.json();
       })

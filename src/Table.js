@@ -8,7 +8,7 @@ const Table = () => {
 
     const handleSubmit = (e) => {
         const data ={name};
-        fetch("",{
+        fetch("http://localhost:8000",{
             method:'POST',
             headers:{"Content-Type":"application/json"},
             body : JSON.stringify(data)
@@ -29,7 +29,7 @@ const Table = () => {
     };
     useEffect(() =>{
         console.log("use effect ran");
-        fetch("")
+        fetch("http://localhost:8000")
             .then(res =>{
                 return res.json();
             })
