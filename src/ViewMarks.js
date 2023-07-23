@@ -52,6 +52,7 @@
 
 
 import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Modal from "./Modal";
 import Title from "./Title.js";
 

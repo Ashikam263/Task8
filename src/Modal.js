@@ -111,11 +111,15 @@
 
 import  React from 'react';
 import { useState } from "react";
+import Modal from './Modal';
+import { useParams } from "react-router-dom";
 
 const Modal = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
+    const {id} = useParams();
+    const mark_id=  id;
   
     const [subject,setSubject] =useState(" ");
     const [internal1,setinternal1] =useState(" ");
@@ -126,7 +130,7 @@ const Modal = () => {
     const handleSubmit = (e) => {
         const Mark ={subject,internal1,internal2,external};
         
-        fetch("",{
+        fetch("http://localhost:8000/students",{
             method:'POST',
             headers:{"Content-Type":"application/json"},
             body : JSON.stringify(Mark)
