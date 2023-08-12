@@ -128,7 +128,7 @@ const Modal = () => {
    
 
     const handleSubmit = (e) => {
-        const Mark ={subject,internal1,internal2,external};
+        const Mark ={subject,internal1,internal2,external,mark_id};
         
         fetch("http://localhost:8000/students",{
             method:'POST',

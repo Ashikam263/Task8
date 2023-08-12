@@ -1,7 +1,7 @@
 .main{
     justify-content: center;
   }
-  .inputs{
+  .details{
     display: flex;
     justify-content:end ;
     margin-top: 50px;
@@ -34,7 +34,7 @@
     background-color: rgba(211, 204, 204, 0.741);
     padding: 8px;
   }
-  .markcells td{
+  .table td{
     padding: 8px;
   }
   

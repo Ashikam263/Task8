@@ -28,7 +28,6 @@ const Table = () => {
         }
     };
     useEffect(() =>{
-        console.log("use effect ran");
         fetch("http://localhost:8000")
             .then(res =>{
                 return res.json();
@@ -41,7 +40,7 @@ const Table = () => {
     return (
         <div className="main">
           {AddTitle() && <Title title="No Students Added"></Title>}
-          <form className="Details" onSubmit={handleSubmit}>
+          <form className="details" onSubmit={handleSubmit}>
             <input
               type="text"
               required
@@ -79,5 +78,3 @@ const Table = () => {
 }
  
 export default Table;
-
-//table not working
