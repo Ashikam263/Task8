@@ -1,6 +1,6 @@
 import { useState ,useEffect } from "react";
-import { Link  } from 'react-router-dom';
-import Title from "./Title.js";
+import { Link } from 'react-router-dom';
+import Title from "./Title";
 
 const Table = () => {
     const [data,setData]  = useState(null);
@@ -8,7 +8,7 @@ const Table = () => {
 
     const handleSubmit = (e) => {
         const data ={name};
-        fetch("http://localhost:8000",{
+        fetch(" http://localhost:8000/data",{
             method:'POST',
             headers:{"Content-Type":"application/json"},
             body : JSON.stringify(data)
@@ -28,7 +28,7 @@ const Table = () => {
         }
     };
     useEffect(() =>{
-        fetch("http://localhost:8000")
+        fetch("http://localhost:8000/data")
             .then(res =>{
                 return res.json();
             })
@@ -41,20 +41,20 @@ const Table = () => {
         <div className="main">
           {AddTitle() && <Title title="No Students Added"></Title>}
           <form className="details" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              required
-              placeholder="Enter Student NAme"
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-            <button>Add</button>
+          <input
+            type="text"
+            required
+            placeholder="Enter Student Name"
+            value=""
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+            <button className="btn btn-light">Add</button>
           </form>
           <div className="tableHandle">
             <table>
-              {data && (
+              {data && 
                 <tbody>
                   {data.map((data, key) => (
                     <tr key={key}>
@@ -69,8 +69,7 @@ const Table = () => {
                       </td>
                     </tr>
                   ))}
-                </tbody>
-              )}
+                </tbody>}
             </table>
           </div>
         </div>

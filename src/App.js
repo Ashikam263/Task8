@@ -1,7 +1,7 @@
 import Title from './Title';
 import Table from './Table';
 import ViewMarks from './ViewMarks';
-import Modal from './Modal';
+import Modal from './MyModal';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {

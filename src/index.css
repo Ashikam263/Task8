@@ -8,15 +8,14 @@
     margin-right: 20%;
   }
   button {
-    background: rgba(74, 73, 68, 0.44); 
     border: 0;
-    padding: 8px;
-    border-radius: 10px; 
+    padding: 16px;
+    border-radius: 5px; 
   }
   input {
     padding :8px;
-    border-radius: 10px;
-    background: whitesmoke; 
+    border-radius: 5px;
+    background: rgb(231, 219, 219); 
     border: 0;
     width: 20%;
   }

@@ -1,71 +1,82 @@
 {
-    "students": [
-      {
-        "id": 1,
-        "name": "John Doe",
-        "subjects": [
-          {
-            "id": 1,
-            "name": "Maths",
-            "Internal1": 20,
-            "Internal2": 25,
-            "external": 45,
-            "total": 90
-          },
-          {
-            "id": 2,
-            "name": "Science",
-            "Internal1": 18,
-            "Internal2": 22,
-            "external": 40,
-            "total": 80
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Jane Doe",
-        "subjects": [
-          {
-            "id": 1,
-            "name": "Maths",
-            "Internal1": 22,
-            "Internal2": 24,
-            "external": 44,
-            "total": 90
-          },
-          {
-            "id": 2,
-            "name": "Science",
-            "Internal1k": 20,
-            "Internal2": 20,
-            "external": 38,
-            "total": 78
-          }
-        ]
-      },
-      {
-        "id": 3,
-        "name": "Bob Smith",
-        "subjects": [
-          {
-            "id": 1,
-            "name": "Maths",
-            "Internal1": 24,
-            "Internal2": 26,
-            "external": 46,
-            "total": 96
-          },
-          {
-            "id": 2,
-            "name": "Science",
-            "Internal1": 22,
-            "Internal2": 24,
-            "external": 42,
-            "total": 88
-          }
-        ]
-      }
-    ]
-  }
-  
+  "data": [
+    {
+      "name": "xQc",
+      "id": 1
+    },
+    {
+      "name": "Pokimane",
+      "id": 2
+    },
+    {
+      "name": "TenZ",
+      "id": 3
+    },
+    {
+      "name": "Ludwig",
+      "id": 4
+    },
+    {
+      "name": " hello",
+      "id": 5
+    }
+  ],
+  "mark": [
+    {
+      "subject": "Politics",
+      "internal1": "17",
+      "internal2": "21",
+      "external": "47",
+      "mark_id": 1
+    },
+    {
+      "subject": "Maths",
+      "internal1": "20",
+      "internal2": "21",
+      "external": "20",
+      "mark_id": 1
+    },
+    {
+      "subject": "Science",
+      "internal1": "20",
+      "internal2": "20",
+      "external": "20",
+      "mark_id": 2
+    },
+    {
+      "subject": "Social",
+      "internal1": "25",
+      "internal2": "25",
+      "external": "50",
+      "mark_id": 2
+    },
+    {
+      "subject": "Malayalam",
+      "internal1": "8",
+      "internal2": "21",
+      "external": "50",
+      "mark_id": 3
+    },
+    {
+      "subject": "GK",
+      "internal1": "17",
+      "internal2": "12",
+      "external": "50",
+      "mark_id": 3
+    },
+    {
+      "subject": "English",
+      "internal1": "15",
+      "internal2": "16",
+      "external": "20",
+      "mark_id": 4
+    },
+    {
+      "subject": "Hindi",
+      "internal1": "10",
+      "internal2": "10",
+      "external": "50",
+      "mark_id": 4
+    }
+  ]
+}

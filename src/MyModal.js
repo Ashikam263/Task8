@@ -111,26 +111,39 @@
 
 import  React from 'react';
 import { useState } from "react";
-import Modal from './Modal';
+import { Modal } from 'react-modal';
 import { useParams } from "react-router-dom";
 
-const Modal = () => {
+const MyModal = () => {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleOpen = () => setOpen(true);
     const {id} = useParams();
-    const mark_id=  id;
+    const mark_id = id;
   
     const [subject,setSubject] =useState(" ");
     const [internal1,setinternal1] =useState(" ");
     const [internal2,setinternal2] =useState(" ");
     const [external,setexternal] =useState(" ");
-   
+
+    const style = {
+        position: 'absolute',
+        top: '40%',
+        left: '50%',
+        height: '400px',
+        width: '400px',
+        background: {
+          color: 'background.paper',
+        },
+        border: '2px solid #000',
+        boxShadow: '24px 0 0 #000',
+        padding: '4px',
+      };
 
     const handleSubmit = (e) => {
         const Mark ={subject,internal1,internal2,external,mark_id};
         
-        fetch("http://localhost:8000/students",{
+        fetch("http://localhost:8000/mark",{
             method:'POST',
             headers:{"Content-Type":"application/json"},
             body : JSON.stringify(Mark)
@@ -142,7 +155,7 @@ const Modal = () => {
     return ( 
         <div>
             <button type="button" onClick={handleOpen}>Add Marks</button>
-            <Modal onClose={handleClose} open={open} >
+            <Modal onClose={handleClose} open={open} sx={style} >
                 <div>
                     <div className="modal-header">
                       <h1 className="modal-title">Enter Marks</h1>
@@ -191,4 +204,4 @@ const Modal = () => {
     );
 }
 
-export default Modal;
+export default MyModal;

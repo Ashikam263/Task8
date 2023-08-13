@@ -53,13 +53,13 @@
 
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Modal from "./Modal";
-import Title from "./Title.js";
+import Modal from "./MyModal"
+import Title from "./Title";
 
 
 const ViewMarks = () => {
     const [mark,setMark] = useState(null);
-    const id = id;
+    const {id} = useParams();
     var grandTotal =0; 
     var CGPA =0;
     
@@ -91,9 +91,9 @@ const ViewMarks = () => {
             if(mark !== null)
             {mark.map((mark,key)=>{
            // var Key =parseInt(mark.key);
-            var internal1 =mark.internal1;
-            var internal2 =mark.internal2;
-            var external =mark.external;
+            var first =mark.internal1;
+            var second =mark.internal2;
+            var ext =mark.external;
             var Total =(parseInt(mark.external)+parseInt(mark.internal1)+parseInt(mark.internal2))/100;
             grandTotal += Total;
             CGPA =grandTotal/(key+1);
@@ -103,12 +103,12 @@ const ViewMarks = () => {
      }
 
      useEffect(() => {
-      fetch("http://localhost:8000/students")
+      fetch("http://localhost:8000/mark")
       .then(res =>{
           return res.json();
       })
       .then(mark => {
-          const update=mark.filter((mark)=> mark.id === id)
+          const update = mark.filter((mark)=> mark.id === id)
           setMark(update);
       })  
     },[]);
