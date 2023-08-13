@@ -87,20 +87,20 @@ const ViewMarks = () => {
             }
         };
         
-        const cgpa= ()=>{
-            if(mark !== null)
-            {mark.map((mark,key)=>{
-           // var Key =parseInt(mark.key);
-            var first =mark.internal1;
-            var second =mark.internal2;
-            var ext =mark.external;
-            var Total =(parseInt(mark.external)+parseInt(mark.internal1)+parseInt(mark.internal2))/100;
-            grandTotal += Total;
-            CGPA =grandTotal/(key+1);
-            })
-            return CGPA*10 ;
-        }
-     }
+        const cgpa = () => {
+            if (mark !== null) {
+              mark.map((mark, key) => {
+                var first = mark.internal1;
+                var second = mark.internal2;
+                var ext = mark.external;
+                var Total = (parseInt(mark.external) + parseInt(mark.internal1) + parseInt(mark.internal2)) / 100;
+                grandTotal += Total;
+                CGPA = grandTotal / mark.length;
+              });
+              return CGPA * 10;
+            }
+          };
+          
 
      useEffect(() => {
       fetch("http://localhost:8000/mark")
