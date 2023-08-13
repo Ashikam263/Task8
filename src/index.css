@@ -3,9 +3,14 @@
   }
   .details{
     display: flex;
-    justify-content:end ;
+    justify-content: center;
     margin-top: 50px;
-    margin-right: 20%;
+    margin-bottom: 20px;
+  }
+  .title{
+    display : flex;
+    justify-content : center;
+    align-items : center;
   }
   button {
     border: 0;
