@@ -1,7 +1,7 @@
 import Title from './Title';
 import Table from './Table';
 import ViewMarks from './ViewMarks';
-import Modal from './MyModal';
+import MyModal from './MyModal';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
             <ViewMarks />
           </Route> 
           <Route path="/Modal">
-            <Modal />
+            <MyModal />
           </Route> 
         </Switch>
       </div>

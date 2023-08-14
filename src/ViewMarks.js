@@ -1,165 +1,221 @@
-// import React, { useState } from 'react';
-// function ViewMarks() {
-//   const [marksAdded, setMarksAdded] = useState(false);
-//   const [subjectName, setSubjectName] = useState('');
-//   const [firstInternalMark, setFirstInternalMark] = useState('');
-//   const [secondInternalMark, setSecondInternalMark] = useState('');
-//   const [externalMark, setExternalMark] = useState('');
-
-//   const handleAddMarks = () => {
-//     // Add code to add marks to the table.js file
-//     setMarksAdded(true);
-//   };
-
-//   return (
-//     <div>
-//       <h2>View Marks</h2>
-//       {!marksAdded && (
-//         <div>
-//           <p>No marks added</p>
-//           <button onClick={() => setMarksAdded(true)}>Add Marks</button>
-//         </div>
-//       )}
-//       {marksAdded && (
-//         <div>
-//           <form onSubmit={handleAddMarks}>
-//             <label htmlFor="subject">Subject</label>
-//             <input type="text" id="subject" value={subjectName} onChange={(e) => setSubjectName(e.target.value)} />
-//             <label htmlFor="first-internal-mark">First Internal Mark</label>
-//             <input
-//               type="number"
-//               id="first-internal-mark"
-//               value={firstInternalMark}
-//               onChange={(e) => setFirstInternalMark(e.target.value)}
-//             />
-//             <label htmlFor="second-internal-mark">Second Internal Mark</label>
-//             <input
-//               type="number"
-//               id="second-internal-mark"
-//               value={secondInternalMark}
-//               onChange={(e) => setSecondInternalMark(e.target.value)}
-//             />
-//             <label htmlFor="external-mark">External Mark</label>
-//             <input type="number" id="external-mark" value={externalMark} onChange={(e) => setExternalMark(e.target.value)} />
-//             <button type="submit">Add</button>
-//           </form>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-// export default ViewMarks;
-
-
-import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
-import Modal from "./MyModal"
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import MyModal from "./MyModal";
 import Title from "./Title";
 
-
 const ViewMarks = () => {
-    const [mark,setMark] = useState(null);
-    const {id} = useParams();
-    var grandTotal =0; 
-    var CGPA =0;
-    
-         const AddTitle= () =>{
-            if(mark !== null){
-                if(mark.length===0) {
-                    return true;}
-                else{ 
-                return false;}
-            }
-            else{ 
-                return true;
-            }
-        };
+  const [mark, setMark] = useState(null);
+  const { id } = useParams();
+  var grandTotal = 0;
+  var CGPA = 0;
 
-        const toAddData= () =>{
-            if(mark !== null){
-                if(mark.length===0) {
-                    return false;}
-                else{ 
-                return true;}
-            }
-            else{ 
-                return false;
-            }
-        };
-        
-        const cgpa = () => {
-            if (mark !== null) {
-              mark.map((mark, key) => {
-                var first = mark.internal1;
-                var second = mark.internal2;
-                var ext = mark.external;
-                var Total = (parseInt(mark.external) + parseInt(mark.internal1) + parseInt(mark.internal2)) / 100;
-                grandTotal += Total;
-                CGPA = grandTotal / mark.length;
-              });
-              return CGPA * 10;
-            }
-          };
-          
-
-     useEffect(() => {
-      fetch("http://localhost:8000/mark")
-      .then(res =>{
-          return res.json();
+  useEffect(() => {
+    fetch("http://localhost:8000/mark/")
+      .then((res) => {
+        return res.json();
       })
-      .then(mark => {
-          const update = mark.filter((mark)=> mark.id === id)
-          setMark(update);
-      })  
-    },[]);
-        
+      .then((mark) => {
+        const newMark = mark.filter((mark) => mark.mark_id === id);
+        setMark(newMark);
+      });
+  }, []);
 
-    return (   
-        <div className="main">
-           {AddTitle() &&<Title title="No Marks Added"/>}
-            <form className="details"> 
-              <Modal />
-            </form>
+  const toAddTitle = () => {
+    if (mark !== null) {
+      if (mark.length === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  };
 
-            {toAddData() && <div className="tableHandle">
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>No:</th>
-                            <th>Subject</th>
-                            <th>Internal 1</th>
-                            <th>Internal 2</th>
-                            <th>External </th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-              
-                     {mark.map((mark,key)=>(
-                        <tr key={key}>
-                            <td>{key+1}</td>
-                            <td>{mark.subject}</td>
-                            <td>{parseInt(mark.internal1)}</td>
-                            <td>{parseInt(mark.internal2)}</td>
-                            <td>{parseInt(mark.external)}</td>
-                            <td>{parseInt(mark.external)+parseInt(mark.internal1)+parseInt(mark.internal2)}</td>
-                         </tr>
-                        )
-                    )}
-                        <tr>
-                            <td>cgpa</td>
-                            <td></td> 
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>{cgpa(mark)}</td>
-                        </tr>
-                    </tbody>  
-                </table>    
-            </div>}
+  const toAddData = () => {
+    if (mark !== null) {
+      if (mark.length === 0) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  };
+
+  const cgpa = () => {
+    if (mark !== null) {
+      mark.forEach((mark, key) => {
+        var int1 = mark.internal1;
+        var int2 = mark.internal2;
+        var ext = mark.external;
+        var Total = (parseInt(mark.external) + parseInt(mark.internal1) + parseInt(mark.internal2)) / 100;
+        grandTotal += Total;
+        CGPA = grandTotal / (key + 1);
+      });
+      return Math.floor(CGPA * 10);
+    }
+  };
+
+  return (
+    <div className="main">
+      {toAddTitle() && <Title title="No Marks Added"/>}
+
+      <form className="details">
+        <MarkModal />
+      </form>
+
+      {toAddData() && (
+        <div className="tableHandle">
+          <table className="list">
+            <thead>
+              <tr>
+                <th>No:</th>
+                <th>Subject</th>
+                <th>Internal 1</th>
+                <th>Internal 2</th>
+                <th>External</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mark.map((mark, key) => (
+                <tr key={key}>
+                  <td>{key + 1}</td>
+                  <td>{mark.subject}</td>
+                  <td>{parseInt(mark.internal1)}</td>
+                  <td>{parseInt(mark.internal2)}</td>
+                  <td>{parseInt(mark.external)}</td>
+                  <td>{parseInt(mark.external) + parseInt(mark.internal1) + parseInt(mark.internal2)}</td>
+                </tr>
+              ))}
+              <tr>
+                <td>cgpa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{cgpa()}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-     );
-}
+      )}
+    </div>
+  );
+};
 
 export default ViewMarks;
+
+// import { useState,useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import Modal from "./MyModal"
+// import Title from "./Title";
+
+// const ViewMarks = () => {
+//     const [mark,setMark] = useState(null);
+//     const {id} = useParams();
+//     var grandTotal =0; 
+//     var CGPA =0;
+    
+//          const AddTitle= () =>{
+//             if(mark !== null){
+//                 if(mark.length===0) {
+//                     return true;}
+//                 else{ 
+//                 return false;}
+//             }
+//             else{ 
+//                 return true;
+//             }
+//         };
+
+//         const toAddData= () =>{
+//             if(mark !== null){
+//                 if(mark.length===0) {
+//                     return false;}
+//                 else{ 
+//                 return true;}
+//             }
+//             else{ 
+//                 return false;
+//             }
+//         };
+        
+//         const cgpa = () => {
+//             if (mark !== null) {
+//               mark.map((mark, key) => {
+//                 var first = mark.internal1;
+//                 var second = mark.internal2;
+//                 var ext = mark.external;
+//                 var Total = (parseInt(mark.external) + parseInt(mark.internal1) + parseInt(mark.internal2)) / 100;
+//                 grandTotal += Total;
+//                 CGPA = grandTotal / mark.length;
+//               });
+//               return CGPA * 10;
+//             }
+//           };
+          
+
+//      useEffect(() => {
+//       fetch("http://localhost:8000/mark")
+//       .then(res =>{
+//           return res.json();
+//       })
+//       .then(mark => {
+//           const update = mark.filter((mark)=> mark.id === id)
+//           setMark(update);
+//       })  
+//     },[]);
+        
+
+//     return (   
+//         <div className="main">
+//            {AddTitle() &&<Title title="No Marks Added"/>}
+//             <form className="details"> 
+//               <Modal />
+//             </form>
+
+//             {toAddData() && <div className="tableHandle">
+//                 <table className="table">
+//                     <thead>
+//                         <tr>
+//                             <th>No:</th>
+//                             <th>Subject</th>
+//                             <th>Internal 1</th>
+//                             <th>Internal 2</th>
+//                             <th>External </th>
+//                             <th>Total</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody> 
+              
+//                      {mark.map((mark,key)=>(
+//                         <tr key={key}>
+//                             <td>{key+1}</td>
+//                             <td>{mark.subject}</td>
+//                             <td>{parseInt(mark.internal1)}</td>
+//                             <td>{parseInt(mark.internal2)}</td>
+//                             <td>{parseInt(mark.external)}</td>
+//                             <td>{parseInt(mark.external)+parseInt(mark.internal1)+parseInt(mark.internal2)}</td>
+//                          </tr>
+//                         )
+//                     )}
+//                         <tr>
+//                             <td>cgpa</td>
+//                             <td></td> 
+//                             <td></td>
+//                             <td></td>
+//                             <td></td>
+//                             <td>{cgpa(mark)}</td>
+//                         </tr>
+//                     </tbody>  
+//                 </table>    
+//             </div>}
+//         </div>
+//      );
+// }
+
+// export default ViewMarks;
  
