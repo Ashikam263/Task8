@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import MyModal from "./MyModal";
+import { useParams } from "react-router-dom";
 import Title from "./Title";
 
 const ViewMarks = () => {
@@ -60,11 +59,9 @@ const ViewMarks = () => {
 
   return (
     <div className="main">
-      {toAddTitle() && <Title title="No Marks Added"/>}
-
-      <form className="details">
-        <MarkModal />
-      </form>
+      {toAddTitle() && (
+        <Title title="No Marks Added"/>
+      )}
 
       {toAddData() && (
         <div className="tableHandle">

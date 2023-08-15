@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 
@@ -35,7 +35,7 @@ const Table = () => {
       return true;
     }
   };
-  
+
   useEffect(() => {
     fetch("http://localhost:8000/data")
       .then((res) => res.json())
@@ -43,7 +43,6 @@ const Table = () => {
         setData(data);
       });
   }, []);
-
 
   return (
     <div className="main">
