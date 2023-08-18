@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 
 const Table = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,6 +18,7 @@ const Table = () => {
     })
       .then(() => {
         console.log("New Name Added");
+        setData([]);
       })
       .catch((error) => {
         console.log(error);
@@ -25,17 +26,9 @@ const Table = () => {
   };
 
   const toAddTitle = () => {
-    if (data !== null) {
-      if (data.length === 0) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return true;
-    }
+    return !data.length;
   };
-  
+
   useEffect(() => {
     fetch("http://localhost:8000/data")
       .then((res) => res.json())
@@ -43,7 +36,6 @@ const Table = () => {
         setData(data);
       });
   }, []);
-
 
   return (
     <div className="main">
